@@ -1,0 +1,17 @@
+body {
+	background-image: url("./img/background.jpeg");
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.navbar {
+	background-color: #961d19;
+}
+
+h1 {
+	color: white; 
+	font-family: Knewave, cursive;
+	font-size: 4em;
+}

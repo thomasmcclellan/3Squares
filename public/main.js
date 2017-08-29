@@ -1,8 +1,5 @@
 $(document).ready(function(){
 	cookBook = []
-	$(searchName).on('click', function(){
-		let search = $(searchRes).val();
-		$(searchRes).val("");
 		$.ajax({
 			type: 'GET',
 			url: 'https://api.edamam.com/search?q=chicken&app_id=73daf4ea&app_key=41b1b0c181878d888fbf62c7a70f0045'
@@ -14,16 +11,22 @@ $(document).ready(function(){
 					url: r.recipe.url,
 					image: r.recipe.image,
 				}
-				cookBook.push(newRecipe)
-				$(searchRes.value).html("")
-				for (let r in data.hits[0]){
-					if(r == newRecipe.ingredients){
+		cookBook.push(newRecipe)
 
-						console.log(r)
-				
-					// console.log($('#recipeList').append('<tr><td>' + newRecipe.label + '</td>' + '<td>' + newRecipe.ingredients + '</td>' + '<td><a>' + newRecipe.url + '</a></td>' + '<td><a>' + newRecipe.image + '</a></td>' + '</tr>'))
-					}
-				}
+		let clicker = false
+		$('#chicken').on('click', function(){
+		clicker = !clicker
+		if (clicker){
+			$('#chicken').html("Hide the Chicken!");
+			$('#recipeList').show();
+			console.log($('#recipeList').append('<tr><td>' + newRecipe.label + '</td>' + '<td>' + newRecipe.ingredients + '</td>' + '<td><a>' + newRecipe.url + '</a></td>' + '<td><a>' + newRecipe.image + '</a></td>' + '</tr>'));
+		} else {
+			$('#chicken').html("Get me Chicken!");
+			$('#recipeList').hide();
+		}
+
+		
+					
 			})
 		})
 	})
