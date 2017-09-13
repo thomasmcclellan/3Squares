@@ -17,10 +17,14 @@ $(document).ready(function(){
 					url: r.recipe.url,
 					image: r.recipe.image,
 				};
-				let table = $('#recipeList').append('<tr><td><b>' + newRecipe.label + '<b></td>' + '<td>' + newRecipe.ingredients + '</td>' + '<td><a href="' + newRecipe.url + '" target="_blank">' + newRecipe.url + '</a></td>' + '<td><a>' + newRecipe.image + '</a></td>' + '</tr>');
-				// table.clear();
-				console.log(table);
+
+
+				let table = $('#recipeList').append('<tr><td class="col-md-3"><img src="' + newRecipe.image + '">' + '</td>' + '<td class="col-md-2"><b>' + newRecipe.label + '<b></td>' + '<td class="col-md-5">' + newRecipe.ingredients + '</td>' + '<td class="col-md-2"><a href="' + newRecipe.url + '" target="_blank">' + newRecipe.url + '</a></td></tr>');
+
+				// fillTable(newRecipe);
+				// console.log(table);
 			})
-		})
-	})
-})
+		});
+		$('#recipeList').empty();
+	});
+});
